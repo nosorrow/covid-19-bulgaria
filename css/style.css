@@ -99,7 +99,7 @@ h1 {
 }
 
 .trending-up-outline {
-  color: rgba(21, 100, 120, 0.58);
+  color: #e24c34;
 }
 
 .pulse-outline {
@@ -111,7 +111,7 @@ h1 {
 }
 
 .fitness-outline {
-  color: #b78707;
+  color: firebrick;
 }
 
 .person-add-outline {
