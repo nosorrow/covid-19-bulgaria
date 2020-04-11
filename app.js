@@ -58,17 +58,3 @@ async function fetchDataCovid() {
 
     return jsonData;
 }
-
-// "today": {
-//     "date": "2020-04-10",
-//     "confirmed": "635",
-//     "newCases": 17,
-//     "active": 556,
-//     "deaths": 25,
-//     "recovered": 54,
-//     "hospital": 231,
-//     "intensive": 33,
-//     "percent": 3.94
-
-//   }
-// }
