@@ -44,7 +44,7 @@ $("#date").datepicker({
             let prognosisNewCases = Math.pow(base, diffDays) * jsonData.today.newCases;
 
             prognosis.innerHTML = `<p>прогнозата  за 
-            дата ${date} е около <strong>${prognosisActive.toFixed()}</strong>oбщо заразени, 
+            дата ${date} е около <strong>${prognosisActive.toFixed()}</strong> oбщо заразени, 
             от които нови за деня <strong>${prognosisNewCases.toFixed()}</strong></p>`;
         });
 
