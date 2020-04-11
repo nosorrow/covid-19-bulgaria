@@ -52,25 +52,6 @@ $("#date").datepicker({
 
 });
 
-// const date = document.querySelector('#date');
-// date.min = new Date().getFullYear() + "-" +  parseInt(new Date().getMonth() + 1 ) + "-" + new Date().getDate()
-// date.addEventListener('change', function (e) {
-
-//     data.then(jsonData => {
-//         let todayTime = new Date();
-//         let newDateTime = new Date(date.value);
-//         let diffTime = newDateTime.getTime() - todayTime.getTime();
-//         let diffDays = Math.ceil(diffTime / (1000 * 3600 * 24));
-//         let base = (jsonData.today.confirmed / (jsonData.today.confirmed - jsonData.today.newCases));
-//         let prognosisActive = Math.pow(base, diffDays) * jsonData.today.confirmed;
-//         let prognosisNewCases = Math.pow(base, diffDays) * jsonData.today.newCases;
-
-//         prognosis.innerHTML = `<p>прогнозата  за 
-//         дата ${date.value} е около <strong>${prognosisActive.toFixed()}</strong> заразени 
-//         и нови за деня <strong>${prognosisNewCases.toFixed()}</strong></p>`;
-//     });
-// });
-
 async function fetchDataCovid() {
     const response = await fetch(url);
     const jsonData = await response.json();
