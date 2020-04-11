@@ -6,7 +6,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<title>COVID-19 в България - статистика</title>
+	<title>COVID-19 в България</title>
 	<!-- Bootstrap CSS -->
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
@@ -147,16 +147,14 @@
 			<form>
 				<div class="row">
 					<div class="col-md-3">
-<!--						<input id="date" type="date" class="form-control m-2" placeholder="First name">-->
 						<input id="date" type="text" class="form-control my-2" placeholder="Date" autocomplete="off">
-
 					</div>
 					<div class="col-md-9">
 						<div class="alert alert-warning" role="alert">
 							<button type="button" class="close" data-dismiss="alert" aria-label="Close">
 								<span aria-hidden="true">&times;</span>
 							</button>
-							<div id="prognosis">Изберете дата прогноза</div>
+							<div id="prognosis">Изберете дата за прогноза</div>
 						</div>
 					</div>
 				</div>
@@ -166,7 +164,8 @@
 	</main>
 	<footer class="footer mt-auto py-3">
 		<div class="container text-center">
-			<span class="text-muted">COVID-19 Bulgaria - statistics </span><span id="footer-date" class="text-muted"></span>
+			<span class="text-muted">COVID-19 Bulgaria - statistics </span><span id="footer-date"
+				class="text-muted"></span>
 		</div>
 	</footer>
 	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
@@ -178,17 +177,17 @@
 	<script>
 		function equalize(selector) {
 			let height = 0;
-			$(selector).each(function() {
+			$(selector).each(function () {
 				if ($(this).height() > height) {
 					height = $(this).height();
 				}
 			});
-			$(selector).each(function() {
+			$(selector).each(function () {
 				$(selector).height(height);
 			});
 		}
 		equalize('.card');
-    
+
 	</script>
 </body>
 
