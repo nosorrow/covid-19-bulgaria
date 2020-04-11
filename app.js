@@ -7,12 +7,16 @@ const hospital = document.querySelector('#hospital');
 const intensive = document.querySelector('#intensive');
 const percent = document.querySelector('#percent');
 const prognosis = document.querySelector('#prognosis');
+const updatedAt = document.querySelector('#updated');
 const url = 'data/data-covid.json';
 var data = data = fetchDataCovid();
 
 window.addEventListener('load', function (e) {
 
     data.then(jsonData => {
+        let updated = new Date(jsonData.today.date+' 18:00:00');
+        console.log(updated);
+        updatedAt.innerHTML = updated.toLocaleString('bg-BG');
         confirmed.innerHTML = jsonData.today.confirmed;
         newCases.innerHTML = jsonData.today.newCases;
         active.innerHTML = jsonData.today.active;
@@ -29,7 +33,7 @@ window.addEventListener('load', function (e) {
 $("#date").datepicker({
     minDate: new Date(),
     dateFormat: 'yy-mm-dd',
-    onSelect: function(date){
+    onSelect: function (date) {
         data.then(jsonData => {
             let todayTime = new Date();
             let newDateTime = new Date(date);
