@@ -78,7 +78,6 @@ async function fetchDataCovid() {
     return jsonData;
 }
 
-
 // "today": {
 //     "date": "2020-04-10",
 //     "confirmed": "635",
