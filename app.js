@@ -1,0 +1,90 @@
+const confirmed = document.querySelector('#confirmed');
+const newCases = document.querySelector('#newCases');
+const active = document.querySelector('#active');
+const deaths = document.querySelector('#deaths');
+const recovered = document.querySelector('#recovered');
+const hospital = document.querySelector('#hospital');
+const intensive = document.querySelector('#intensive');
+const percent = document.querySelector('#percent');
+const prognosis = document.querySelector('#prognosis');
+const url = 'data/data-covid.json';
+var data = data = fetchDataCovid();
+
+window.addEventListener('load', function (e) {
+
+    data.then(jsonData => {
+        confirmed.innerHTML = jsonData.today.confirmed;
+        newCases.innerHTML = jsonData.today.newCases;
+        active.innerHTML = jsonData.today.active;
+        deaths.innerHTML = jsonData.today.deaths;
+        recovered.innerHTML = jsonData.today.recovered;
+        hospital.innerHTML = jsonData.today.hospital;
+        intensive.innerHTML = jsonData.today.intensive;
+        percent.innerHTML = jsonData.today.percent + '%';
+
+    })
+
+});
+
+$("#date").datepicker({
+    minDate: new Date(),
+    dateFormat: 'yy-mm-dd',
+    onSelect: function(date){
+        data.then(jsonData => {
+            let todayTime = new Date();
+            let newDateTime = new Date(date);
+            let diffTime = newDateTime.getTime() - todayTime.getTime();
+            let diffDays = Math.ceil(diffTime / (1000 * 3600 * 24));
+            let base = (jsonData.today.confirmed / (jsonData.today.confirmed - jsonData.today.newCases));
+            let prognosisActive = Math.pow(base, diffDays) * jsonData.today.confirmed;
+            let prognosisNewCases = Math.pow(base, diffDays) * jsonData.today.newCases;
+
+            prognosis.innerHTML = `<p>прогнозата  за 
+            дата ${date} е около <strong>${prognosisActive.toFixed()}</strong> заразени 
+            и нови за деня <strong>${prognosisNewCases.toFixed()}</strong></p>`;
+        });
+
+    }
+
+});
+
+// const date = document.querySelector('#date');
+// date.min = new Date().getFullYear() + "-" +  parseInt(new Date().getMonth() + 1 ) + "-" + new Date().getDate()
+// date.addEventListener('change', function (e) {
+
+//     data.then(jsonData => {
+//         let todayTime = new Date();
+//         let newDateTime = new Date(date.value);
+//         let diffTime = newDateTime.getTime() - todayTime.getTime();
+//         let diffDays = Math.ceil(diffTime / (1000 * 3600 * 24));
+//         let base = (jsonData.today.confirmed / (jsonData.today.confirmed - jsonData.today.newCases));
+//         let prognosisActive = Math.pow(base, diffDays) * jsonData.today.confirmed;
+//         let prognosisNewCases = Math.pow(base, diffDays) * jsonData.today.newCases;
+
+//         prognosis.innerHTML = `<p>прогнозата  за 
+//         дата ${date.value} е около <strong>${prognosisActive.toFixed()}</strong> заразени 
+//         и нови за деня <strong>${prognosisNewCases.toFixed()}</strong></p>`;
+//     });
+// });
+
+async function fetchDataCovid() {
+    const response = await fetch(url);
+    const jsonData = await response.json();
+
+    return jsonData;
+}
+
+
+// "today": {
+//     "date": "2020-04-10",
+//     "confirmed": "635",
+//     "newCases": 17,
+//     "active": 556,
+//     "deaths": 25,
+//     "recovered": 54,
+//     "hospital": 231,
+//     "intensive": 33,
+//     "percent": 3.94
+
+//   }
+// }
