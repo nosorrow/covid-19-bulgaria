@@ -15,7 +15,6 @@ window.addEventListener('load', function (e) {
 
     data.then(jsonData => {
         let updated = new Date(jsonData.today.date+' 18:00:00');
-        console.log(updated);
         updatedAt.innerHTML = updated.toLocaleString('bg-BG');
         confirmed.innerHTML = jsonData.today.confirmed;
         newCases.innerHTML = jsonData.today.newCases;
@@ -35,9 +34,9 @@ $("#date").datepicker({
     dateFormat: 'yy-mm-dd',
     onSelect: function (date) {
         data.then(jsonData => {
-            let todayTime = new Date();
+            let beginTime = new Date(jsonData.today.date);
             let newDateTime = new Date(date);
-            let diffTime = newDateTime.getTime() - todayTime.getTime();
+            let diffTime = newDateTime.getTime() - beginTime.getTime();
             let diffDays = Math.ceil(diffTime / (1000 * 3600 * 24));
             let base = (jsonData.today.confirmed / (jsonData.today.confirmed - jsonData.today.newCases));
             let prognosisActive = Math.pow(base, diffDays) * jsonData.today.confirmed;
