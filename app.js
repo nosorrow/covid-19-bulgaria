@@ -14,7 +14,7 @@ var data = data = fetchDataCovid();
 window.addEventListener('load', function (e) {
 
     data.then(jsonData => {
-        let updated = new Date(jsonData.today.date+' 18:00:00');
+        let updated = new Date(jsonData.today.date+' 12:00:00');
         updatedAt.innerHTML = updated.toLocaleString('bg-BG');
         confirmed.innerHTML = jsonData.today.confirmed;
         newCases.innerHTML = jsonData.today.newCases;
