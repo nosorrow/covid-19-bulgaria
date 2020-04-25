@@ -110,12 +110,11 @@ $uris = parseMzLinks('https://www.mh.government.bg/bg/novini/aktualno/');
 $parsedRaWCities = getCOVI19($uris[1]);
 $cities = normalizeParsedData($parsedRaWCities);
 arsort($cities);
-
+array_shift($cities);
 $citiesName =  array_keys($cities);
 $data['cityCases'] = array_values($cities);
 $data['cityNames'] = $citiesName;
 echo json_encode($data, JSON_UNESCAPED_UNICODE);
-
 $colors = [];
 
 /*
