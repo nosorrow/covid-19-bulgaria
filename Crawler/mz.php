@@ -107,7 +107,7 @@ function cityCasesStringify($data)
 
 
 $uris = parseMzLinks('https://www.mh.government.bg/bg/novini/aktualno/');
-$parsedRaWCities = getCOVI19($uris[1]);
+$parsedRaWCities = getCOVI19($uris[0]);
 $cities = normalizeParsedData($parsedRaWCities);
 arsort($cities);
 array_shift($cities);
