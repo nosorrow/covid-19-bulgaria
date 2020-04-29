@@ -1,9 +1,9 @@
 {
   "today": {
     "date": "2020-04-29T17:44:35+03:00",
-    "confirmed": 1477,
-    "newCases": 78,
-    "active": 1170,
+    "confirmed": 1447,
+    "newCases": 48,
+    "active": 1140,
     "deaths": 64,
     "recovered": 243,
     "hospital": 310,
