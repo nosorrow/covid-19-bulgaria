@@ -5,68 +5,126 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
   <meta content="ie=edge" http-equiv="X-UA-Compatible">
-  <title>Document</title>
+  <meta content="COVID-19, COVID-19 в България, заразени covid-19 по градове" name="keywords">
+  <meta content="Статистика COVID-19 в България по градове" name="description">
+  <meta content="Статистика COVID-19 в България по градове" property="og:title"/>
+  <meta content="article" property="og:type"/>
+  <meta content="https://nosorrow.github.io/covid-19-bulgaria/" property="og:url"/>
+  <meta content="Статистика COVID-19 в България по градове" property="og:description"/>
+  <meta content="https://nosorrow.github.io/covid-19-bulgaria/corona.jpeg" property="og:image"/>
+  <link href="favicon.ico" rel="icon" sizes="16x16">
+  <title>Статистика COVID-19 в България по градове</title>
   <!-- Bootstrap CSS -->
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box
+    }
+
+    .bar-container {
+      width: 100%; /* Full width */
+      min-height: 30px;
+      background-color: #ddd; /* Grey background */
+    }
+
+    .cases {
+      min-height: 30px;
+      text-align: left; /* Right-align text */
+      padding-top: 10px; /* Add top padding */
+      padding-bottom: 10px; /* Add bottom padding */
+      color: white; /* White text color */
+    }
+
+    .city-title {
+      font-weight: 600;
+    }
+  </style>
 </head>
 <body>
-<div class="container h-100" >
-  <div class="row h-100">
-    <div class="col h-100">
-      <canvas id="chart-area" style="height: 100%; width: auto"></canvas>
+<div class="container h-100">
+  <div class="row justify-content-center h-100">
+    <div class="col-md-8">
+      <div class="d-flex align-items-center p-3 my-3 text-white-50 bg-purple rounded shadow-sm">
+        <div class="lh-100">
+          <h1 class="lh-100 text-white">COVID-19 в България по градове</h1>
+          <p>Информация - Министерство на здравеопазването. Данните са за дата <span id="updated"></span><br>
+          </p>
+        </div>
+      </div>
     </div>
   </div>
+  <div class="row justify-content-center h-100">
+    <div class="col-md-8" id="list"></div>
+  </div>
 </div>
+<!-- GO HOME Button -->
+<div id="gohome" class="home">
+  <a href="./" title="Go home">
+    <span><ion-icon name="home-outline"></ion-icon></span>
+  </a>
+</div>
+<footer class="footer mt-auto py-3">
+  <div class="container text-center">
+    <span class="text-muted">COVID-19 Bulgaria - statistics </span><span id="footer-date" class="text-muted"></span>
+  </div>
+</footer>
+
 <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
 <script>
+    const list = document.querySelector('#list');
+    var total, i;
 
-    fetch('http://localhost/MyScripts/covid19/Crawler/mz.php')
-        .then(response => {
-            return response.json();
-        })
-        .then((data) => {
-            console.log(data);
-            var ctx = document.getElementById('chart-area').getContext('2d');
-            var myChart = new Chart(ctx, {
-                type: 'bar',
-                data: {
-                    labels: data.cityNames,//['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-                    datasets: [{
-                        label: 'Covid-19 cases',
-                        data: data.cityCases,//[12, 19, 3, 5, 2, 3],
-                        backgroundColor: [
-                            'rgba(255, 99, 132, 1)',
-                            'rgba(54, 162, 235, 1)',
-                            'rgba(255, 206, 86, 1)',
-                            'rgba(75, 192, 192, 1)',
-                            'rgba(153, 102, 255, 1)',
-                            'rgba(255, 159, 64, 1)'
-                        ],
-                        borderColor: [
-                            'rgba(255, 99, 132, 1)',
-                            'rgba(54, 162, 235, 1)',
-                            'rgba(255, 206, 86, 1)',
-                            'rgba(75, 192, 192, 1)',
-                            'rgba(153, 102, 255, 1)',
-                            'rgba(255, 159, 64, 1)'
-                        ],
-                        borderWidth: 1
-                    }]
-                },
-                options: {
-                    scales: {
-                        yAxes: [{
-                            ticks: {
-                                beginAtZero: true
-                            }
-                        }]
-                    }
-                }
-            });
+    window.addEventListener('load', function (e) {
+        i = 0;
+        fetch('data/data-covid.json')
+        .then(response=>response.json())
+        .then(data=> {
+           const updated = new Date(data.today.date);
+            document.getElementById('updated').innerText = updated.toLocaleString('bg-BG');
         });
+        fetchCovidBg();
+
+    });
+
+    async function fetchCovidBg() {
+        let url = 'data/bg.json';
+        const response = await fetch(url);
+        const jsonCity = await response.json();
+        total = jsonCity.totalCases;
+
+        list.innerHTML = jsonCity.cities.map(listCityes).join("\n");
+    }
+
+    function listCityes(city) {
+        let color;
+        let percent = (city.cases * 100 / total);
+        if (city.cases > 200) {
+            color = '#f44336';
+        } else if (city.cases < 200 && city.cases > 50) {
+            color = 'rgba(244,67,54,0.8)';
+        } else if (city.cases < 50 && city.cases > 20) {
+            color = '#ffb3b3';
+        } else if (city.cases < 20 && city.cases > 10) {
+            color = '#67ed6d';
+        } else {
+            color = '#4CAF50';
+        }
+        i++;
+
+        return `
+        <p class="mb-0 city-title">
+        <span style="font-weight: 300; font-size: 0.8rem">${i}.</span> ${city.name} - ${city.cases}
+        </p>
+        <div class="bar-container mb-1">
+          <div class="cases" style="background-color:${color};width: ${percent}%"></div>
+        </div>
+     `
+    }
 </script>
 </body>
 </html>

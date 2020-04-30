@@ -105,18 +105,27 @@ function cityCasesStringify($data)
     return $toStr;
 }
 
-
 $uris = parseMzLinks('https://www.mh.government.bg/bg/novini/aktualno/');
 $parsedRaWCities = getCOVI19($uris[0]);
 $cities = normalizeParsedData($parsedRaWCities);
 arsort($cities);
-array_shift($cities);
+//array_shift($cities);
 $citiesName =  array_keys($cities);
 $data['cityCases'] = array_values($cities);
 $data['cityNames'] = $citiesName;
-echo json_encode($data, JSON_UNESCAPED_UNICODE);
-$colors = [];
+$data['cities'] = [];
+$data['totalCases'] = array_sum($data['cityCases']);
+$i = 0;
+foreach ($cities as $k => $v) {
+    $data['cities'][$i]['name'] = $k;
+    $data['cities'][$i]['cases'] = $v;
+    $i++;
 
+}
+//var_dump($data['cities']);
+$json = json_encode($data, JSON_UNESCAPED_UNICODE);
+echo json_encode($data, JSON_UNESCAPED_UNICODE);
+//file_put_contents('../data/bg.json', var_export($json,true));
 /*
 foreach ($uris as $uri) {
     $content = getCOVI19($uri);
