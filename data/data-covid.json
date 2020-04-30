@@ -1,13 +1,13 @@
 {
   "today": {
-    "date": "2020-04-29T17:44:35+03:00",
-    "confirmed": 1447,
-    "newCases": 48,
-    "active": 1140,
-    "deaths": 64,
-    "recovered": 243,
-    "hospital": 310,
-    "intensive": 38,
+    "date": "2020-04-30T17:42:57+03:00",
+    "confirmed": 1506,
+    "newCases": 59,
+    "active": 1174,
+    "deaths": 66,
+    "recovered": 266,
+    "hospital": 317,
+    "intensive": 40,
     "percent": 4.4
   }
 }
