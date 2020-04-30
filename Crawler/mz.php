@@ -105,12 +105,34 @@ function cityCasesStringify($data)
     return $toStr;
 }
 
-$uris = parseMzLinks('https://www.mh.government.bg/bg/novini/aktualno/');
-var_dump($uris);
-$parsedRaWCities = getCOVI19($uris[4]);
+function substractionCases(array $new, array $old)
+{
+    $substraction = [];
+    $compareKeys1 = (array_keys($new));
+    $compareKeys2 = (array_keys($old));
+    if($compareKeys1 !== $compareKeys2){
+        die('Проблем с данните => различни масиви на градовете');
+    }
+    foreach ($new as $k => $value) {
+        $substraction[$k] = $value - $old[$k];
+    }
+   // var_dump($new, $old, array_sum($substraction));die;
+    return $substraction;
+}
 
-if ($parsedRaWCities) {
-    $cities = normalizeParsedData($parsedRaWCities);
+$uris = parseMzLinks('https://www.mh.government.bg/bg/novini/aktualno/');
+//var_dump($uris);
+$parsedRaWCitiesNew = getCOVI19($uris[1]);
+$parsedRaWCitiesOld = getCOVI19($uris[6]);
+
+
+if ($parsedRaWCitiesNew) {
+    $cities = normalizeParsedData($parsedRaWCitiesNew);
+    $citiesOld = normalizeParsedData($parsedRaWCitiesOld);
+    $substract = substractionCases($cities, $citiesOld);
+
+   // var_dump($cities);
+
     arsort($cities);
 //array_shift($cities);
     $citiesName =  array_keys($cities);
@@ -118,12 +140,15 @@ if ($parsedRaWCities) {
     $data['cityNames'] = $citiesName;
     $data['cities'] = [];
     $data['totalCases'] = array_sum($data['cityCases']);
+    $data['totalNewCases'] = array_sum($substract);
+
     $i = 0;
     foreach ($cities as $k => $v) {
         $data['cities'][$i]['name'] = $k;
         $data['cities'][$i]['cases'] = $v;
-        $i++;
+        $data['cities'][$i]['newCases'] = $substract[$k];
 
+        $i++;
     }
 
 } else {
@@ -133,7 +158,8 @@ if ($parsedRaWCities) {
 //var_dump($data['cities']);
 $json = json_encode($data, JSON_UNESCAPED_UNICODE);
 echo json_encode($data, JSON_UNESCAPED_UNICODE);
-//file_put_contents('../data/bg.json', var_export($json,true));
+
+file_put_contents('../data/bg.json', var_export($json,true));
 
 /*
 foreach ($uris as $uri) {

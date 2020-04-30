@@ -56,104 +56,130 @@
   "cities": [
     {
       "name": "София",
-      "cases": 713
+      "cases": 713,
+      "newCases": 5
     },
     {
       "name": "Плевен",
-      "cases": 146
+      "cases": 146,
+      "newCases": 13
     },
     {
       "name": "Видин",
-      "cases": 103
+      "cases": 103,
+      "newCases": 20
     },
     {
       "name": "Пловдив",
-      "cases": 73
+      "cases": 73,
+      "newCases": 12
     },
     {
       "name": "Кюстендил",
-      "cases": 67
+      "cases": 67,
+      "newCases": 1
     },
     {
       "name": "Бургас",
-      "cases": 47
+      "cases": 47,
+      "newCases": 0
     },
     {
       "name": "Сливен",
-      "cases": 45
+      "cases": 45,
+      "newCases": 0
     },
     {
       "name": "Благоевград",
-      "cases": 43
+      "cases": 43,
+      "newCases": 0
     },
     {
       "name": "Стара Загора",
-      "cases": 37
+      "cases": 37,
+      "newCases": 1
     },
     {
       "name": "Смолян",
-      "cases": 34
+      "cases": 34,
+      "newCases": 1
     },
     {
       "name": "Пазарджик",
-      "cases": 26
+      "cases": 26,
+      "newCases": 0
     },
     {
       "name": "Варна",
-      "cases": 26
+      "cases": 26,
+      "newCases": 0
     },
     {
       "name": "Велико Търново",
-      "cases": 22
+      "cases": 22,
+      "newCases": 0
     },
     {
       "name": "Монтана",
-      "cases": 18
+      "cases": 18,
+      "newCases": 0
     },
     {
       "name": "Хасково",
-      "cases": 17
+      "cases": 17,
+      "newCases": 0
     },
     {
       "name": "Перник",
-      "cases": 13
+      "cases": 13,
+      "newCases": 2
     },
     {
       "name": "Кърджали",
-      "cases": 13
+      "cases": 13,
+      "newCases": 0
     },
     {
       "name": "Добрич",
-      "cases": 13
+      "cases": 13,
+      "newCases": 0
     },
     {
       "name": "Русе",
-      "cases": 13
+      "cases": 13,
+      "newCases": 0
     },
     {
       "name": "Ямбол",
-      "cases": 13
+      "cases": 13,
+      "newCases": 3
     },
     {
       "name": "Враца",
-      "cases": 7
+      "cases": 7,
+      "newCases": 0
     },
     {
       "name": "Габрово",
-      "cases": 6
+      "cases": 6,
+      "newCases": 1
     },
     {
       "name": "Силистра",
-      "cases": 5
+      "cases": 5,
+      "newCases": 0
     },
     {
       "name": "Шумен",
-      "cases": 4
+      "cases": 4,
+      "newCases": 0
     },
     {
       "name": "Ловеч",
-      "cases": 2
+      "cases": 2,
+      "newCases": 0
     }
   ],
-  "totalCases": 1506
+  "totalCases": 1506,
+  "totalNewCases": 59
 }

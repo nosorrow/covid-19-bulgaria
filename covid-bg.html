@@ -141,11 +141,14 @@
         } else {
             color = '#4CAF50';
         }
+        let positiveSign = city.newCases ? '+': '';
+        let badgeColor = (city.newCases>0)? 'badge-danger':'badge-success';
         i++;
 
         return `
         <p class="mb-0 city-title">
         <span style="font-weight: 300; font-size: 0.8rem">${i}.</span> ${city.name} - ${city.cases}
+        <sup><span class="badge badge-pill ${badgeColor}">${positiveSign} ${city.newCases}</span></sup>
         </p>
         <div class="bar-container mb-1">
           <div class="cases" style="background-color:${color};width: ${percent}%"></div>
