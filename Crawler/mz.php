@@ -52,7 +52,7 @@ function getCOVI19($url)
         foreach ($dd as $d) {
             $date = $d->textContent;
         }
-     //   return json_encode([$date => $stats], JSON_UNESCAPED_UNICODE);
+        //   return json_encode([$date => $stats], JSON_UNESCAPED_UNICODE);
 
         return $stats;
     }
@@ -107,35 +107,48 @@ function cityCasesStringify($data)
 
 function substractionCases(array $new, array $old)
 {
+ /*   $diff = array_diff_key($old, $new);
+    $diff1 = array_diff_key($new, $old);
+    var_dump($diff, $diff1);
+
+    $new = ($diff + $new);
+    $old = ($old + $diff1);*/
+    
     $substraction = [];
     $compareKeys1 = (array_keys($new));
     $compareKeys2 = (array_keys($old));
-    if($compareKeys1 !== $compareKeys2){
+    sort($compareKeys1);
+    sort($compareKeys2);
+   /* arsort($new);
+    arsort($old);
+    var_dump($new, $old);*/
+
+    if ($compareKeys1 !== $compareKeys2) {
         die('Проблем с данните => различни масиви на градовете');
     }
     foreach ($new as $k => $value) {
         $substraction[$k] = $value - $old[$k];
     }
-   // var_dump($new, $old, array_sum($substraction));die;
+    // var_dump($new, $old, array_sum($substraction));die;
     return $substraction;
 }
 
 $uris = parseMzLinks('https://www.mh.government.bg/bg/novini/aktualno/');
-//var_dump($uris);
+var_dump($uris);
 
 $parsedRaWCitiesNew = getCOVI19($uris[0]);
-$parsedRaWCitiesOld = getCOVI19($uris[5]);
+$parsedRaWCitiesOld = getCOVI19($uris[2]);
 
 if ($parsedRaWCitiesNew) {
     $cities = normalizeParsedData($parsedRaWCitiesNew);
     $citiesOld = normalizeParsedData($parsedRaWCitiesOld);
     $substract = substractionCases($cities, $citiesOld);
 
-   // var_dump($cities);
+    // var_dump($cities);
 
     arsort($cities);
-//array_shift($cities);
-    $citiesName =  array_keys($cities);
+
+    $citiesName = array_keys($cities);
     $data['cityCases'] = array_values($cities);
     $data['cityNames'] = $citiesName;
     $data['cities'] = [];
