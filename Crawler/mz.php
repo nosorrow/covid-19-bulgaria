@@ -107,29 +107,31 @@ function cityCasesStringify($data)
 
 function substractionCases(array $new, array $old)
 {
- /*   $diff = array_diff_key($old, $new);
+    $diff = array_diff_key($old, $new);
     $diff1 = array_diff_key($new, $old);
-    var_dump($diff, $diff1);
+   // var_dump($diff, $diff1);
 
     $new = ($diff + $new);
-    $old = ($old + $diff1);*/
-    
+    $old = ($old + $diff1);
+
     $substraction = [];
     $compareKeys1 = (array_keys($new));
     $compareKeys2 = (array_keys($old));
     sort($compareKeys1);
     sort($compareKeys2);
-   /* arsort($new);
+    arsort($new);
     arsort($old);
-    var_dump($new, $old);*/
+  //  var_dump($new, $old);
 
     if ($compareKeys1 !== $compareKeys2) {
         die('Проблем с данните => различни масиви на градовете');
     }
     foreach ($new as $k => $value) {
         $substraction[$k] = $value - $old[$k];
+
     }
-    // var_dump($new, $old, array_sum($substraction));die;
+    var_dump($substraction);
+     var_dump($new, $old, array_sum($substraction));die;
     return $substraction;
 }
 
@@ -143,8 +145,6 @@ if ($parsedRaWCitiesNew) {
     $cities = normalizeParsedData($parsedRaWCitiesNew);
     $citiesOld = normalizeParsedData($parsedRaWCitiesOld);
     $substract = substractionCases($cities, $citiesOld);
-
-    // var_dump($cities);
 
     arsort($cities);
 
