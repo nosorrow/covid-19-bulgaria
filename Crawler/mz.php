@@ -82,10 +82,11 @@ function parseMzLinks($url)
 function normalizeParsedData($data)
 {
     //the last in line in not Ok - 23 => 'Шумен – 4, Ямбол – 6'
-    $normalizedData = [];
+/*    $normalizedData = [];
     $pop = array_pop($data);
     $pop = explode(",", $pop);
-    array_push($data, ...$pop);
+    array_push($data, ...$pop);*/
+    $data = normalizeAnomaly($data);
     foreach ($data as $value) {
         $dash = html_entity_decode('&ndash;');
         $key = trim(strstr($value, $dash, true));
@@ -95,16 +96,22 @@ function normalizeParsedData($data)
     return $normalizedData;
 }
 
-function findAnomaly($arr)
+function normalizeAnomaly($arr)
 {
-    $normlized = array_map(function ($item){
-        if (strpos($item, ',') !== false) {
-            $item = explode(',', $item);
-            return $item;
-        } else {
-            return $item;
+    $anomaly = [];
+    $normlized = $arr;
+    foreach ($arr as $key => $value) {
+        if (strpos($value, ',') !== false) {
+            $value = explode(',', $value);
+            $value = array_map(function ($item){
+                return trim($item);
+            }, $value);
+            array_push($anomaly, ...$value);
+            unset($normlized[$key]);
         }
-    }, $arr);
+    }
+    $normlized = (array_merge(array_values($normlized), $anomaly));
+    var_dump($normlized);
 
     return $normlized;
 }
@@ -124,8 +131,8 @@ function substractionCases(array $new, array $old)
     $diff1 = array_diff_key($new, $old);
     var_dump($diff, $diff1);
 
-    $new = ($diff + $new);
-    $old = ($old + $diff1);
+  /*  $new = ($diff + $new);
+    $old = ($old + $diff1);*/
 
     $substraction = [];
     $compareKeys1 = (array_keys($new));
@@ -134,7 +141,7 @@ function substractionCases(array $new, array $old)
     sort($compareKeys2);
     arsort($new);
     arsort($old);
-  //  var_dump($new, $old);
+    //  var_dump($new, $old);
 
     if ($compareKeys1 !== $compareKeys2) {
         die('Проблем с данните => различни масиви на градовете');
@@ -143,8 +150,8 @@ function substractionCases(array $new, array $old)
         $substraction[$k] = $value - $old[$k];
 
     }
-   // var_dump($substraction);
-   //  var_dump($new, $old, array_sum($substraction));die;
+    // var_dump($substraction);
+    //  var_dump($new, $old, array_sum($substraction));die;
     return $substraction;
 }
 
@@ -153,13 +160,13 @@ $uris = parseMzLinks('https://www.mh.government.bg/bg/novini/aktualno/');
 
 $parsedRaWCitiesNew = getCOVI19($uris[0]);
 $parsedRaWCitiesOld = getCOVI19($uris[3]);
-//var_dump($parsedRaWCitiesNew, findAnomaly($parsedRaWCitiesNew));
+//var_dump($parsedRaWCitiesNew, normalizeAnomaly($parsedRaWCitiesNew));
 
 if ($parsedRaWCitiesNew) {
     $cities = normalizeParsedData($parsedRaWCitiesNew);
     $citiesOld = normalizeParsedData($parsedRaWCitiesOld);
     $substract = substractionCases($cities, $citiesOld);
-
+    var_dump($cities, $citiesOld);
     arsort($cities);
 
     $citiesName = array_keys($cities);
