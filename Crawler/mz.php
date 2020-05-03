@@ -95,6 +95,20 @@ function normalizeParsedData($data)
     return $normalizedData;
 }
 
+function findAnomaly($arr)
+{
+    $normlized = array_map(function ($item){
+        if (strpos($item, ',') !== false) {
+            $item = explode(',', $item);
+            return $item;
+        } else {
+            return $item;
+        }
+    }, $arr);
+
+    return $normlized;
+}
+
 function cityCasesStringify($data)
 {
     $toStr = [];
@@ -108,7 +122,7 @@ function substractionCases(array $new, array $old)
 {
     $diff = array_diff_key($old, $new);
     $diff1 = array_diff_key($new, $old);
-   // var_dump($diff, $diff1);
+    var_dump($diff, $diff1);
 
     $new = ($diff + $new);
     $old = ($old + $diff1);
@@ -129,16 +143,17 @@ function substractionCases(array $new, array $old)
         $substraction[$k] = $value - $old[$k];
 
     }
-    var_dump($substraction);
-     var_dump($new, $old, array_sum($substraction));die;
+   // var_dump($substraction);
+   //  var_dump($new, $old, array_sum($substraction));die;
     return $substraction;
 }
 
 $uris = parseMzLinks('https://www.mh.government.bg/bg/novini/aktualno/');
-var_dump($uris);
+//var_dump($uris);
 
 $parsedRaWCitiesNew = getCOVI19($uris[0]);
-$parsedRaWCitiesOld = getCOVI19($uris[2]);
+$parsedRaWCitiesOld = getCOVI19($uris[3]);
+//var_dump($parsedRaWCitiesNew, findAnomaly($parsedRaWCitiesNew));
 
 if ($parsedRaWCitiesNew) {
     $cities = normalizeParsedData($parsedRaWCitiesNew);
@@ -171,7 +186,7 @@ if ($parsedRaWCitiesNew) {
 $json = json_encode($data, JSON_UNESCAPED_UNICODE);
 echo json_encode($data, JSON_UNESCAPED_UNICODE);
 
-//file_put_contents('../data/bg.json', var_export($json,true));
+file_put_contents('../data/bg.json', var_export($json,true));
 
 /*
 foreach ($uris as $uri) {

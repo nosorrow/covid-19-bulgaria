@@ -41,9 +41,8 @@ class ManufactureCurl
             CURLOPT_USERAGENT => $useragent,
             CURLOPT_HTTPHEADER => [
                 "referer: http://www.google.com"
-            ]
-//            CURLOPT_SSL_VERIFYPEER => 1,
-
+            ],
+          //  CURLOPT_SSL_VERIFYPEER => 1,
         ]);
 
         if ($useProxy === true) {
@@ -58,10 +57,10 @@ class ManufactureCurl
 
         if ($result === false)
         {
-            throw new Exception("Proxy is not working: " . $err);
+            throw new \Exception("Proxy is not working: " . $err);
         }
         if ($err) {
-            throw new Exception('CURL error#: ' . $err);
+            throw new \Exception('CURL error#: ' . $err);
         }
 //        echo $useragent  . "\n" . $result;
         return $result;
