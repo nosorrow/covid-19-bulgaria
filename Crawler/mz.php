@@ -60,7 +60,6 @@ function getCOVI19($url)
     return false;
 }
 
-
 function parseMzLinks($url)
 {
     try {
@@ -182,6 +181,3 @@ foreach ($uris as $uri) {
     }
 
 }*/
-
-
-
