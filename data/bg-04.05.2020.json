@@ -1,16 +1,16 @@
 {
   "cityCases": [
-    743,
-    163,
-    150,
-    79,
+    739,
+    158,
+    133,
+    77,
     69,
     52,
-    52,
+    51,
     47,
     38,
     37,
-    33,
+    28,
     26,
     24,
     19,
@@ -33,8 +33,8 @@
     "Видин",
     "Пловдив",
     "Кюстендил",
-    "Благоевград",
     "Сливен",
+    "Благоевград",
     "Бургас",
     "Стара Загора",
     "Смолян",
@@ -58,23 +58,23 @@
   "cities": [
     {
       "name": "София",
-      "cases": 743,
-      "newCases": 4
+      "cases": 739,
+      "newCases": 10
     },
     {
       "name": "Плевен",
-      "cases": 163,
-      "newCases": 5
+      "cases": 158,
+      "newCases": 1
     },
     {
       "name": "Видин",
-      "cases": 150,
-      "newCases": 17
+      "cases": 133,
+      "newCases": 8
     },
     {
       "name": "Пловдив",
-      "cases": 79,
-      "newCases": 2
+      "cases": 77,
+      "newCases": 1
     },
     {
       "name": "Кюстендил",
@@ -82,14 +82,14 @@
       "newCases": 0
     },
     {
-      "name": "Благоевград",
-      "cases": 52,
-      "newCases": 1
-    },
-    {
       "name": "Сливен",
       "cases": 52,
       "newCases": 0
+    },
+    {
+      "name": "Благоевград",
+      "cases": 51,
+      "newCases": 1
     },
     {
       "name": "Бургас",
@@ -104,12 +104,12 @@
     {
       "name": "Смолян",
       "cases": 37,
-      "newCases": 0
+      "newCases": 1
     },
     {
       "name": "Пазарджик",
-      "cases": 33,
-      "newCases": 5
+      "cases": 28,
+      "newCases": 1
     },
     {
       "name": "Варна",
@@ -159,7 +159,7 @@
     {
       "name": "Враца",
       "cases": 10,
-      "newCases": 0
+      "newCases": 1
     },
     {
       "name": "Габрово",
@@ -187,6 +187,6 @@
       "newCases": 0
     }
   ],
-  "totalCases": 1652,
-  "totalNewCases": 34
+  "totalCases": 1618,
+  "totalNewCases": 24
 }
