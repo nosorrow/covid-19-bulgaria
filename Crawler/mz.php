@@ -154,12 +154,13 @@ function substractionCases(array $new, array $old)
     //  var_dump($new, $old, array_sum($substraction));die;
     return $substraction;
 }
+//===================================================================================
 
 $uris = parseMzLinks('https://www.mh.government.bg/bg/novini/aktualno/');
 var_dump($uris);
 
 $parsedRaWCitiesNew = getCOVI19($uris[0]);
-$parsedRaWCitiesOld = getCOVI19($uris[2]);
+$parsedRaWCitiesOld = getCOVI19($uris[5]);
 //var_dump($parsedRaWCitiesNew, normalizeAnomaly($parsedRaWCitiesNew));
 
 if ($parsedRaWCitiesNew) {

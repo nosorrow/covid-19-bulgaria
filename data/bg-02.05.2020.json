@@ -1,16 +1,16 @@
 {
   "cityCases": [
-    743,
-    163,
-    150,
-    79,
+    729,
+    157,
+    125,
+    76,
     69,
     52,
-    52,
+    50,
     47,
     38,
-    37,
-    33,
+    36,
+    27,
     26,
     24,
     19,
@@ -20,7 +20,7 @@
     15,
     13,
     13,
-    10,
+    9,
     6,
     5,
     4,
@@ -33,8 +33,8 @@
     "Видин",
     "Пловдив",
     "Кюстендил",
-    "Благоевград",
     "Сливен",
+    "Благоевград",
     "Бургас",
     "Стара Загора",
     "Смолян",
@@ -58,38 +58,38 @@
   "cities": [
     {
       "name": "София",
-      "cases": 743,
+      "cases": 729,
       "newCases": 4
     },
     {
       "name": "Плевен",
-      "cases": 163,
-      "newCases": 5
+      "cases": 157,
+      "newCases": 3
     },
     {
       "name": "Видин",
-      "cases": 150,
-      "newCases": 17
+      "cases": 125,
+      "newCases": 14
     },
     {
       "name": "Пловдив",
-      "cases": 79,
-      "newCases": 2
+      "cases": 76,
+      "newCases": 0
     },
     {
       "name": "Кюстендил",
       "cases": 69,
-      "newCases": 0
-    },
-    {
-      "name": "Благоевград",
-      "cases": 52,
-      "newCases": 1
+      "newCases": 2
     },
     {
       "name": "Сливен",
       "cases": 52,
-      "newCases": 0
+      "newCases": 3
+    },
+    {
+      "name": "Благоевград",
+      "cases": 50,
+      "newCases": 5
     },
     {
       "name": "Бургас",
@@ -99,17 +99,17 @@
     {
       "name": "Стара Загора",
       "cases": 38,
-      "newCases": 0
+      "newCases": 1
     },
     {
       "name": "Смолян",
-      "cases": 37,
-      "newCases": 0
+      "cases": 36,
+      "newCases": 1
     },
     {
       "name": "Пазарджик",
-      "cases": 33,
-      "newCases": 5
+      "cases": 27,
+      "newCases": 1
     },
     {
       "name": "Варна",
@@ -124,7 +124,7 @@
     {
       "name": "Перник",
       "cases": 19,
-      "newCases": 0
+      "newCases": 2
     },
     {
       "name": "Монтана",
@@ -139,7 +139,7 @@
     {
       "name": "Ямбол",
       "cases": 16,
-      "newCases": 0
+      "newCases": 1
     },
     {
       "name": "Русе",
@@ -158,8 +158,8 @@
     },
     {
       "name": "Враца",
-      "cases": 10,
-      "newCases": 0
+      "cases": 9,
+      "newCases": 1
     },
     {
       "name": "Габрово",
@@ -187,6 +187,6 @@
       "newCases": 0
     }
   ],
-  "totalCases": 1652,
-  "totalNewCases": 34
+  "totalCases": 1594,
+  "totalNewCases": 39
 }
