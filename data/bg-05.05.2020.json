@@ -1,26 +1,26 @@
 {
   "cityCases": [
-    774,
-    171,
-    161,
+    750,
+    170,
+    154,
     79,
-    77,
-    62,
+    74,
     55,
-    48,
+    53,
     47,
     39,
     38,
-    35,
-    26,
+    37,
+    27,
     26,
     25,
-    23,
+    21,
     20,
+    19,
     15,
     13,
     13,
-    12,
+    10,
     7,
     5,
     4,
@@ -41,10 +41,10 @@
     "Смолян",
     "Ямбол",
     "Варна",
-    "Хасково",
     "Велико Търново",
-    "Перник",
+    "Хасково",
     "Монтана",
+    "Перник",
     "Русе",
     "Кърджали",
     "Добрич",
@@ -58,18 +58,18 @@
   "cities": [
     {
       "name": "София",
-      "cases": 774,
-      "newCases": 24
+      "cases": 750,
+      "newCases": 7
     },
     {
       "name": "Плевен",
-      "cases": 171,
-      "newCases": 1
+      "cases": 170,
+      "newCases": 7
     },
     {
       "name": "Видин",
-      "cases": 161,
-      "newCases": 7
+      "cases": 154,
+      "newCases": 4
     },
     {
       "name": "Пловдив",
@@ -78,43 +78,43 @@
     },
     {
       "name": "Кюстендил",
-      "cases": 77,
-      "newCases": 3
+      "cases": 74,
+      "newCases": 5
     },
     {
       "name": "Благоевград",
-      "cases": 62,
-      "newCases": 7
+      "cases": 55,
+      "newCases": 3
     },
     {
       "name": "Сливен",
-      "cases": 55,
-      "newCases": 2
+      "cases": 53,
+      "newCases": 1
     },
     {
       "name": "Бургас",
-      "cases": 48,
-      "newCases": 1
+      "cases": 47,
+      "newCases": 0
     },
     {
       "name": "Пазарджик",
-      "cases": 47,
-      "newCases": 8
+      "cases": 39,
+      "newCases": 6
     },
     {
       "name": "Стара Загора",
-      "cases": 39,
-      "newCases": 1
+      "cases": 38,
+      "newCases": 0
     },
     {
       "name": "Смолян",
-      "cases": 38,
-      "newCases": 1
+      "cases": 37,
+      "newCases": 0
     },
     {
       "name": "Ямбол",
-      "cases": 35,
-      "newCases": 8
+      "cases": 27,
+      "newCases": 11
     },
     {
       "name": "Варна",
@@ -122,23 +122,23 @@
       "newCases": 0
     },
     {
-      "name": "Хасково",
-      "cases": 26,
-      "newCases": 5
-    },
-    {
       "name": "Велико Търново",
       "cases": 25,
-      "newCases": 0
+      "newCases": 1
     },
     {
-      "name": "Перник",
-      "cases": 23,
+      "name": "Хасково",
+      "cases": 21,
       "newCases": 4
     },
     {
       "name": "Монтана",
       "cases": 20,
+      "newCases": 2
+    },
+    {
+      "name": "Перник",
+      "cases": 19,
       "newCases": 0
     },
     {
@@ -158,13 +158,13 @@
     },
     {
       "name": "Враца",
-      "cases": 12,
-      "newCases": 2
+      "cases": 10,
+      "newCases": 0
     },
     {
       "name": "Габрово",
       "cases": 7,
-      "newCases": 0
+      "newCases": 1
     },
     {
       "name": "Силистра",
@@ -187,6 +187,6 @@
       "newCases": 0
     }
   ],
-  "totalCases": 1778,
-  "totalNewCases": 74
+  "totalCases": 1704,
+  "totalNewCases": 52
 }
