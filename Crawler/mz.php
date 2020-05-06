@@ -194,7 +194,7 @@ if ($parsedRaWCitiesNew) {
 $json = json_encode($data, JSON_UNESCAPED_UNICODE);
 echo json_encode($data, JSON_UNESCAPED_UNICODE);
 
-file_put_contents('../data/bg.json', var_export($json,true));
+//file_put_contents('../data/bg.json', var_export($json,true));
 
 /*
 foreach ($uris as $uri) {
