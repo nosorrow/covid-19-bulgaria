@@ -161,7 +161,7 @@ $uris = parseMzLinks('https://www.mh.government.bg/bg/novini/aktualno/');
 
 $parsedRaWCitiesNew = getCOVI19($uris[0]);
 $parsedRaWCitiesOld = getCOVI19($uris[2]);
-//var_dump($parsedRaWCitiesNew, normalizeAnomaly($parsedRaWCitiesNew));
+//var_dump($parsedRaWCitiesNew, $parsedRaWCitiesOld);die;
 
 if ($parsedRaWCitiesNew) {
     $cities = normalizeParsedData($parsedRaWCitiesNew);
