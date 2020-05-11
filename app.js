@@ -9,11 +9,11 @@ const percent = document.querySelector('#percent');
 const prognosis = document.querySelector('#prognosis');
 const updatedAt = document.querySelector('#updated');
 const url = 'data/data-covid.json';
-var data = fetchDataCovid();
+const getResult = fetchDataCovid();
 
 window.addEventListener('load', function (e) {
 
-    data.then(jsonData => {
+    getResult.then(jsonData => {
         let updated = new Date(jsonData.today.date);
         updatedAt.innerHTML = updated.toLocaleString('bg-BG');
         confirmed.innerHTML = jsonData.today.confirmed;
@@ -33,7 +33,7 @@ $("#date").datepicker({
     minDate: new Date(),
     dateFormat: 'yy-mm-dd',
     onSelect: function (date) {
-        data.then(jsonData => {
+        getResult.then(jsonData => {
             let beginTime = new Date(jsonData.today.date);
             let newDateTime = new Date(date);
             let diffTime = newDateTime.getTime() - beginTime.getTime();
