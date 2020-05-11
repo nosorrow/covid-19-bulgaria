@@ -9,7 +9,7 @@ const percent = document.querySelector('#percent');
 const prognosis = document.querySelector('#prognosis');
 const updatedAt = document.querySelector('#updated');
 const url = 'data/data-covid.json';
-var data = data = fetchDataCovid();
+var data = fetchDataCovid();
 
 window.addEventListener('load', function (e) {
 
