@@ -1,13 +1,13 @@
 {
   "today": {
-    "date": "2020-05-13T08:25:47+03:00",
-    "confirmed": 2069,
-    "newCases": 46,
-    "active": 1474,
-    "deaths": 96,
-    "recovered": 499,
+    "date": "2020-05-14T08:40:09+03:00",
+    "confirmed": 2100,
+    "newCases": 31,
+    "active": 1480,
+    "deaths": 99,
+    "recovered": 521,
     "hospital": 365,
     "intensive": 51,
-    "percent": 4.6
+    "percent": 4.7
   }
 }
