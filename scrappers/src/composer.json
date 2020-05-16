@@ -1,0 +1,26 @@
+{
+    "name": "plamenorama/excel-xls-importer",
+    "description": "Excel to Mysql importer",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "nosorrow",
+            "email": "plamenorama@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "files": [
+            "spreadsheet-reader/php-excel-reader/excel_reader2.php",
+            "spreadsheet-reader/SpreadsheetReader.php",
+            "Helpers/Helpers.php"
+        ],
+        "psr-4": {
+            "Adapter\\": "Adapter",
+            "Importer\\": "Importer"
+        }
+    }
+
+}
