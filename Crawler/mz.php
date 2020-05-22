@@ -157,7 +157,7 @@ function substractionCases(array $new, array $old)
 //===================================================================================
 
 $uris = parseMzLinks('https://www.mh.government.bg/bg/novini/aktualno/');
-//var_dump($uris);die;
+var_dump($uris);die;
 
 $parsedRaWCitiesNew = getCOVI19($uris[0]);
 $parsedRaWCitiesOld = getCOVI19($uris[2]);
