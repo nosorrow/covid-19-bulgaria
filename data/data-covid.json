@@ -1,14 +1,14 @@
 {
   "today": {
-    "date": "2020-07-07T08:12:05+03:00",
-    "confirmed": 5914,
-    "newCases": 174,
-    "tests": 2775,
-    "active": 2664,
-    "deaths": 250,
-    "recovered": 3000,
-    "hospital": 470,
-    "intensive": 29,
+    "date": "2020-07-08T08:11:25+03:00",
+    "confirmed": 6102,
+    "newCases": 188,
+    "tests": 3476,
+    "active": 2811,
+    "deaths": 254,
+    "recovered": 3037,
+    "hospital": 483,
+    "intensive": 32,
     "percent": 4.2
   }
 }
