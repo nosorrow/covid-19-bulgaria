@@ -82,10 +82,10 @@ function parseMzLinks($url)
 function normalizeParsedData($data)
 {
     //the last in line in not Ok - 23 => 'Шумен – 4, Ямбол – 6'
-/*    $normalizedData = [];
-    $pop = array_pop($data);
-    $pop = explode(",", $pop);
-    array_push($data, ...$pop);*/
+    /*    $normalizedData = [];
+        $pop = array_pop($data);
+        $pop = explode(",", $pop);
+        array_push($data, ...$pop);*/
     $data = normalizeAnomaly($data);
     foreach ($data as $value) {
         $dash = "-";//html_entity_decode('&ndash;');
@@ -104,7 +104,7 @@ function normalizeAnomaly($arr)
     foreach ($arr as $key => $value) {
         if (strpos($value, ',') !== false) {
             $value = explode(',', $value);
-            $value = array_map(function ($item){
+            $value = array_map(function ($item) {
                 return trim($item);
             }, $value);
             array_push($anomaly, ...$value);
@@ -122,14 +122,17 @@ $uris = parseMzLinks('https://www.mh.government.bg/bg/novini/aktualno/');
 //var_dump($uris);die;
 
 $parsedRaWCitiesNew = getCOVI19($uris[0]);
+//print_r($parsedRaWCitiesNew);
 
-//print_r($parsedRaWCitiesNew);die;
+$cities = [];
 
+foreach ($parsedRaWCitiesNew as $valuecity) {
+    $cities[]['name'] = $valuecity;
+}
+//$city = normalizeParsedData($parsedRaWCitiesNew);
 
-$city = normalizeParsedData($parsedRaWCitiesNew);
+//echo json_encode($city, JSON_UNESCAPED_UNICODE);
 
-//print_r($city);die;
+$json = (json_encode($cities, 256));
 
-//var_dump($data['cities']);
-//$json = json_encode($data, JSON_UNESCAPED_UNICODE);
-echo json_encode($city, JSON_UNESCAPED_UNICODE);
+file_put_contents('../data/bg.json', var_export($json, true));
