@@ -135,4 +135,4 @@ foreach ($parsedRaWCitiesNew as $valuecity) {
 
 $json = (json_encode($cities, 256));
 
-file_put_contents('../data/bg.json', var_export($json, true));
+file_put_contents('../data/mun.json', var_export($json, true));
