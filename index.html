@@ -251,15 +251,11 @@
         const jsonCity = await response.json();
         const list = document.querySelector('#list');
 
-        list.innerHTML = jsonCity.cities.map(listCityes).join("\n");
+        list.innerHTML = jsonCity.cities.map(listCities).join("\n");
     }
 
-    function listCityes(city) {
-        console.log(city)
-        return `
-      <li class="list-group-item">${city.name}</li>
-
-`
+    function listCities(city) {
+        return `<li class="list-group-item">${city.name}</li>`;
     }
 
     function equalize(selector) {
