@@ -1,14 +1,14 @@
 {
   "today": {
-    "date": "2020-08-10T09:03:07+03:00",
-    "confirmed": 13396,
-    "newCases": 53,
-    "active": 5177,
-    "deaths": 447,
-    "recovered": 7772,
-    "hospital": 849,
+    "date": "2020-08-11T09:03:07+03:00",
+    "confirmed": 13512,
+    "newCases": 116,
+    "active": 5073,
+    "deaths": 459,
+    "recovered": 7980,
+    "hospital": 854,
     "intensive": 54,
-    "percent": 3.3,
-    "tests": 1275
+    "percent": 3.4,
+    "tests": 3667
   }
 }
