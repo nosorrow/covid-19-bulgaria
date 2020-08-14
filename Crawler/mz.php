@@ -121,7 +121,7 @@ function normalizeAnomaly($arr)
 $uris = parseMzLinks('https://www.mh.government.bg/bg/novini/aktualno/');
 //var_dump($uris);die;
 
-$parsedRaWCitiesNew = getCOVI19($uris[0]);
+$parsedRaWCitiesNew = getCOVI19($uris[1]);
 //print_r($parsedRaWCitiesNew);
 
 $cities = [];
@@ -133,7 +133,10 @@ foreach ($parsedRaWCitiesNew as $valuecity) {
 
 //echo json_encode($city, JSON_UNESCAPED_UNICODE);
 
-$json = (json_encode($cities, 256));
+$json = (json_encode(['cities'=>$cities], 256));
 
-file_put_contents('../data/mun.json',
-    "{  \"cities\": ".var_export($json, true) . "}");
+/*file_put_contents('../data/mun.json',
+    "{  \"cities\": ".var_export($json, true) . "}");*/
+
+$data =  trim(var_export($json, true), "'");
+file_put_contents('../data/mun.json', $data);
