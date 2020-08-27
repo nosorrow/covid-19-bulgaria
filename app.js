@@ -8,6 +8,7 @@ const intensive = document.querySelector('#intensive');
 const percent = document.querySelector('#percent');
 const prognosis = document.querySelector('#prognosis');
 const updatedAt = document.querySelector('#updated');
+const tests = document.querySelector('#tests');
 const url = 'data/data-covid.json';
 const getResult = fetchDataCovid();
 
@@ -24,7 +25,7 @@ window.addEventListener('load', function (e) {
         hospital.innerHTML = jsonData.today.hospital;
         intensive.innerHTML = jsonData.today.intensive;
         percent.innerHTML = jsonData.today.percent + '%';
-
+        tests.innerHTML = jsonData.today.tests;
     })
 
 });
