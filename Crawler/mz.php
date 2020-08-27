@@ -122,6 +122,7 @@ $uris = parseMzLinks('https://www.mh.government.bg/bg/novini/aktualno/');
 //var_dump($uris);die;
 
 $parsedRaWCitiesNew = getCOVI19($uris[0]);
+
 //print_r($parsedRaWCitiesNew);
 
 $cities = [];

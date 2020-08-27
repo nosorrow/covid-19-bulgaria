@@ -1,5 +1,6 @@
 {
   "today": {
+<<<<<<< HEAD
     "date": "2020-08-27T09:03:07+03:00",
     "confirmed": 15751,
     "newCases": 162,
@@ -10,5 +11,17 @@
     "intensive": 60,
     "percent": 3.7,
     "tests": 3844
+=======
+    "date": "2020-08-19T09:03:07+03:00",
+    "confirmed": 14669,
+    "newCases": 169,
+    "active": 4451,
+    "deaths": 519,
+    "recovered": 9699,
+    "hospital": 782,
+    "intensive": 61,
+    "percent": 3.5,
+    "tests": 3667
+>>>>>>> 5975b1456cc952ab1b19e6234572ed9776249681
   }
 }
