@@ -1,0 +1,18 @@
+{
+  "today": {
+    "date": "2020-09-10T10:00:00+02:00",
+    "confirmed": 17435,
+    "newCases": 122,
+    "active": 4259,
+    "multiplier": 0,
+    "growth Factors": 0,
+    "deaths": 702,
+    "recovered": 12474,
+    "hospital": 753,
+    "intensive": 60,
+    "percent": 4,
+    "tests": 5145,
+    "positive": 122,
+    "%positive": 2
+  }
+}
