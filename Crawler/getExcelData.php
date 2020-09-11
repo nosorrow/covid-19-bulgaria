@@ -7,7 +7,6 @@ $file = "../covid-19.xlsx";
 $spreadsheet = PhpOffice\PhpSpreadsheet\IOFactory::load($file);
 
 $sheetData = $spreadsheet->getActiveSheet()->toArray(null, true, true, true);
-//print_r($sheetData);
 
 $titles = array_map(function ($e) {
     return lcfirst($e);
@@ -35,3 +34,5 @@ $json = json_encode($toJson, 256);
 $dataToExport = trim(var_export($json, true), "'");
 
 file_put_contents('../data/data-covid.json', $dataToExport);
+
+print_r($json);

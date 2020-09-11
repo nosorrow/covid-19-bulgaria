@@ -1,18 +1,18 @@
 {
   "today": {
-    "date": "2020-09-10T10:00:00+02:00",
-    "confirmed": 17435,
-    "newCases": 122,
-    "active": 4259,
+    "date": "2020-09-11T10:00:00+02:00",
+    "confirmed": 17598,
+    "newCases": 163,
+    "active": 4273,
     "multiplier": 0,
     "growth Factors": 0,
-    "deaths": 702,
-    "recovered": 12474,
-    "hospital": 753,
-    "intensive": 60,
+    "deaths": 706,
+    "recovered": 12619,
+    "hospital": 746,
+    "intensive": 55,
     "percent": 4,
-    "tests": 5145,
-    "positive": 122,
-    "%positive": 2
+    "tests": 5090,
+    "positive": 163,
+    "%positive": 3
   }
 }

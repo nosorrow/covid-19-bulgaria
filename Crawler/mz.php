@@ -28,15 +28,16 @@ function getCOVI19($url)
                 foreach ($nodes as $node) {
                     //echo $node->nodeValue. "\n";
                     // Броят на починалите е+[^.!?]*[.!?]
-                    preg_match('#(?:както следва:)([\S\s]+)(?:\.[^.]?)$#um',
+                    preg_match("~(?:както следва:)([\S\s]+)(?:\.[^.]?)$~Um",
                         $node->nodeValue, $match);
                     if ($match) {
                         return $match[1];
                     }
                 }
             }
-            return false;
         }
+        return false;
+
     };
 
     if ($mz()) {
@@ -121,9 +122,7 @@ function normalizeAnomaly($arr)
 $uris = parseMzLinks('https://www.mh.government.bg/bg/novini/aktualno/');
 //var_dump($uris);die;
 
-$parsedRaWCitiesNew = getCOVI19($uris[1]);
-
-//print_r($parsedRaWCitiesNew);
+$parsedRaWCitiesNew = getCOVI19($uris[0]);
 
 $cities = [];
 if ($parsedRaWCitiesNew !== false) {
@@ -133,11 +132,6 @@ if ($parsedRaWCitiesNew !== false) {
 } else {
     trigger_error("TRIGGER ERROR: Nothing to show! Possible wrong URL!", E_USER_ERROR);
 }
-
-//$city = normalizeParsedData($parsedRaWCitiesNew);
-//echo json_encode($city, JSON_UNESCAPED_UNICODE);
-/*file_put_contents('../data/mun.json',
-    "{  \"cities\": ".var_export($json, true) . "}");*/
 
 $json = (json_encode(['cities'=>$cities], 256));
 
