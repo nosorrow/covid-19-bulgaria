@@ -122,7 +122,7 @@ function normalizeAnomaly($arr)
 $uris = parseMzLinks('https://www.mh.government.bg/bg/novini/aktualno/');
 //var_dump($uris);die;
 
-$parsedRaWCitiesNew = getCOVI19($uris[1]);
+$parsedRaWCitiesNew = getCOVI19($uris[0]);
 
 $cities = [];
 if ($parsedRaWCitiesNew !== false) {
