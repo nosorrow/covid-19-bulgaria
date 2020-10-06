@@ -122,20 +122,29 @@ function normalizeAnomaly($arr)
 $uris = parseMzLinks('https://www.mh.government.bg/bg/novini/aktualno/');
 //var_dump($uris);die;
 
-$parsedRaWCitiesNew = getCOVI19($uris[1]);
 
-$cities = [];
-if ($parsedRaWCitiesNew !== false) {
-    foreach ($parsedRaWCitiesNew as $valuecity) {
-        $cities[]['name'] = $valuecity;
+function printCovid19($url){
+
+    $parsedRaWCitiesNew = getCOVI19($url);
+
+    $cities = [];
+    if ($parsedRaWCitiesNew !== false) {
+        foreach ($parsedRaWCitiesNew as $valuecity) {
+            $cities[]['name'] = $valuecity;
+        }
+    } else {
+        trigger_error("TRIGGER ERROR: Nothing to show! Possible wrong URL!", E_USER_ERROR);
     }
-} else {
-    trigger_error("TRIGGER ERROR: Nothing to show! Possible wrong URL!", E_USER_ERROR);
+
+    $json = (json_encode(['cities'=>$cities], 256));
+
+    $data =  trim(var_export($json, true), "'");
+    file_put_contents('../data/mun.json', $data);
+
+    print_r($data);
+
 }
 
-$json = (json_encode(['cities'=>$cities], 256));
+//==================================
 
-$data =  trim(var_export($json, true), "'");
-file_put_contents('../data/mun.json', $data);
-
-print_r($data);
+printCovid19($uris[0]);
