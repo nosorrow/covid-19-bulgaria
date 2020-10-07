@@ -147,4 +147,4 @@ function printCovid19($url){
 
 //==================================
 
-printCovid19($uris[0]);
+printCovid19($uris[2]);
