@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PhpIncludePathManager">
+    <include_path>
+      <path value="$PROJECT_DIR$/Crawler/vendor/symfony/dom-crawler" />
+      <path value="$PROJECT_DIR$/Crawler/vendor/symfony/polyfill-mbstring" />
+      <path value="$PROJECT_DIR$/Crawler/vendor/symfony/polyfill-php80" />
+      <path value="$PROJECT_DIR$/Crawler/vendor/symfony/css-selector" />
+      <path value="$PROJECT_DIR$/Crawler/vendor/symfony/polyfill-ctype" />
+      <path value="$PROJECT_DIR$/Crawler/vendor/composer" />
+    </include_path>
+  </component>
+</project>
