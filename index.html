@@ -98,7 +98,6 @@
           <p>
             Информация - Министерство на здравеопазването. Данните са за дата
             <span id="updated"></span><br />
-            <!--          До днес, 16.30 часа, са направени 26 417 теста за коронавирус.-->
           </p>
         </div>
       </div>
@@ -228,11 +227,11 @@
           </div>
         </div>
       </div>
-      
+
       <div class="row justify-content-center">
-        <div class="col-md-4 text-center">
+        <div class="col-12 text-center">
           <h4>Нови случаи по области:</h4>
-          <ul class="list-group" id="list"></ul>
+          <div class="d-flex flex-wrap" id="list"></div>
         </div>
       </div>
     </main>
@@ -272,7 +271,7 @@
       }
 
       function listCities(city) {
-        return `<li class="list-group-item">${city.name}</li>`;
+        return `<div class="card m-2" style="width: 12rem;"><div class="card-body">${city.name}</div></div>`;
       }
 
       function equalize(selector) {
