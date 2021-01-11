@@ -16,15 +16,17 @@ window.addEventListener("load", function (e) {
   getResult.then((jsonData) => {
     let updated = new Date(jsonData.today.date);
     updatedAt.innerHTML = updated.toLocaleString("bg-BG");
-    confirmed.innerHTML = jsonData.today.confirmed;
-    newCases.innerHTML = jsonData.today.newCases;
-    active.innerHTML = jsonData.today.active;
-    deaths.innerHTML = jsonData.today.deaths;
-    recovered.innerHTML = jsonData.today.recovered;
-    hospital.innerHTML = jsonData.today.hospital;
+    confirmed.innerHTML = formatNumber(jsonData.today.confirmed);
+    newCases.innerHTML = formatNumber(jsonData.today.newCases);
+    active.innerHTML = formatNumber(jsonData.today.active);
+    deaths.innerHTML = formatNumber(jsonData.today.deaths);
+    recovered.innerHTML = formatNumber(jsonData.today.recovered);
+    hospital.innerHTML = formatNumber(jsonData.today.hospital);
     intensive.innerHTML = jsonData.today.intensive;
     percent.innerHTML = jsonData.today.percent + "%";
-    tests.innerHTML = jsonData.today.tests;
+    tests.innerHTML = formatNumber(jsonData.today.tests);
+
+    console.log(formatNumber(jsonData.today.hospital));
   });
 });
 
@@ -56,4 +58,8 @@ async function fetchDataCovid() {
   const jsonData = await response.json();
 
   return jsonData;
+}
+
+function formatNumber(n) {
+  return n.toLocaleString("en").replace(/,/g, " ");
 }
