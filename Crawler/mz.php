@@ -147,7 +147,9 @@ class Mz
                 $cities[]['name'] = $valuecity;
             }
         } else {
-            trigger_error("TRIGGER ERROR: Nothing to show! Possible wrong URL!", E_USER_ERROR);
+           // trigger_error("TRIGGER ERROR: Nothing to show! Possible wrong URL!", E_USER_ERROR);
+            echo "TRIGGER ERROR: Nothing to show! Possible wrong URL!";
+            return false;
         }
 
         $json = (json_encode(['cities'=>$cities], 256));
