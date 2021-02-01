@@ -16,7 +16,6 @@ function readExelData()
 
     $data = end($sheetData);
 
-
     $date = new DateTime(array_shift($data));
 
     $date = $date->add(new DateInterval('PT10H'));
