@@ -148,7 +148,7 @@ class Mz
             }
         } else {
            // trigger_error("TRIGGER ERROR: Nothing to show! Possible wrong URL!", E_USER_ERROR);
-            echo "TRIGGER ERROR: Nothing to show! Possible wrong URL!";
+            echo "Not found: Possible wrong URL!\n";
             return false;
         }
 
