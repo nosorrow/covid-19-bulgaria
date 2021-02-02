@@ -1,6 +1,8 @@
 <?php
 
-include "../../PhpSpreadsheet/vendor/autoload.php";
+//include "../../PhpSpreadsheet/vendor/autoload.php";
+include "vendor/autoload.php";
+
 function readExelData()
 {
     $file = "../covid-19.xlsx";
