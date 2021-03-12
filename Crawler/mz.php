@@ -43,7 +43,7 @@ class Mz
                     foreach ($nodes as $node) {
                         //echo $node->nodeValue. "\n";
                         // Броят на починалите е+[^.!?]*[.!?]
-                        preg_match("~(?:както следва:)([\S\s]+)(?:\.[^.]?)$~Um",
+                        preg_match("~(?:както следва:)([\S\s]+)(?:\.[^.]?)$~mU",
                             $node->nodeValue, $match);
                         if ($match) {
                             return $match[1];
@@ -57,7 +57,7 @@ class Mz
 
         if ($mz()) {
             $stat = explode(';', $mz());
-            $stats = array_map(function ($item) {
+            $stats = array_map(static function ($item) {
                 return trim($item);
             }, $stat);
 

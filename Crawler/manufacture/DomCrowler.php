@@ -26,8 +26,8 @@ class DomCrowler
     }
 
     /**
-     * @param mixed $regex
-     * @return MzParser
+     * @param $regex
+     * @return $this
      */
     public function setRegex($regex)
     {
@@ -35,6 +35,9 @@ class DomCrowler
         return $this;
     }
 
+    /**
+     * @return \DOMNodeList|false
+     */
     public function getContext()
     {
         $doc = new \DOMDocument();
@@ -67,7 +70,7 @@ class DomCrowler
     /**
      * Xpath query
      * @param mixed $xpath
-     * @return MzParser
+     * @return DomCrowler
      */
     public function setXpath($xpath)
     {
