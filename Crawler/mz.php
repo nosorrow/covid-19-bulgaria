@@ -157,7 +157,7 @@ class Mz
         $data =  trim(var_export($json, true), "'");
         file_put_contents('../data/mun.json', $data);
 
-        print_r($data);
+        echo $data;
 
     }
 }

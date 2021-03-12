@@ -3,7 +3,7 @@
 //include "../../PhpSpreadsheet/vendor/autoload.php";
 include "vendor/autoload.php";
 
-function readExelData()
+function readExcelData()
 {
     $file = "../covid-19.xlsx";
 
@@ -37,5 +37,5 @@ function readExelData()
 
     file_put_contents('../data/data-covid.json', $dataToExport);
 
-    print_r($json);
+    echo $dataToExport;
 }

@@ -10,4 +10,4 @@ while($getData = $mz->printCovid19($url[$i]) === false){
     $i++;
 }
 echo "\n\n";
-readExelData();
+readExcelData();
